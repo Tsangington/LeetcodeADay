@@ -34,6 +34,8 @@ def buddyStrings(s, goal):
         for letter in goal:
             if goal.count(letter) >= 2:
                 return(True)
+    elif len(s) != len(goal):
+        return(False)
     else:
         #check for num of differences
         for index in range(len(goal)):
