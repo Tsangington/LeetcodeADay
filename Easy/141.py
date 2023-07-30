@@ -20,7 +20,7 @@ return false.
 #         self.val = x
 #         self.next = None
 
-def hasCycle(head):
+def hasCycle1(head):
     existingNodes = []
     pos = head
     if head:
@@ -30,4 +30,27 @@ def hasCycle(head):
             else:
                 existingNodes.append(pos)
             pos = pos.next
+    return False
+
+# Version 2 uses constant space in memory. Inefficient,
+# not optimised.
+def hasCycle2( head):
+    pos = head
+    if head:
+        kang1 = pos
+        kang2 = pos.next
+        while kang2 != None:
+            if kang1 == kang2:
+                return True
+            if kang2.next != None:
+                kang2 = kang2.next
+            else:
+                return False
+            if kang1 == kang2:
+                return True
+            if kang2.next != None:
+                kang2 = kang2.next
+            else:
+                return False
+            kang1 = kang1.next
     return False
