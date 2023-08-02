@@ -18,8 +18,6 @@ def isAnagram(s, t):
     for letter in s:
         if letter in lst:
                 lst.remove(letter)
-        else:
-                return False
     if len(lst) > 0:
             return False
     return True
