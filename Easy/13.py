@@ -26,37 +26,3 @@ X can be placed before L (50) and C (100) to make 40 and 90.
 C can be placed before D (500) and M (1000) to make 400 and 900.
 Given a roman numeral, convert it to an integer.
 """
-
-
-
-"""
-Extra Challenge: Int to roman numerals:
-"""
-def intToRoman( s: int) -> int:
-    romanDict = {
-        1000: "M",
-        900: "CM",
-        500: "D",
-        400: "CD",
-        100: "C",
-        90: "XC",
-        50: "L",
-        40: "XL",
-        10: "X",
-        9: "IX",
-        5: "V",
-        4: "IV",
-        1: "I",
-    }
-    romanNum = ""
-    while s != 0:
-        for i in romanDict.keys():
-            if i <= s:
-                romanNum += romanDict[i]
-                s -= i
-                break
-
-    print(romanNum)
-    return romanNum
-
-intToRoman(s = 4321)
