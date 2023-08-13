@@ -35,3 +35,27 @@ def removeDuplicates(nums: list[int]) -> int:
     return len(nums)
 
 print(removeDuplicates(nums = [1,1,1,2,2,3]))
+
+
+# Second version - constant memory with no new arrays needed,
+# and slightly quicker running time - (9ms)
+def removeDuplicates2(nums: list[int]) -> int:
+        index = 0
+        num = nums[0]
+        count = 0
+        while index < len(nums):
+            if num == nums[index]:
+                count += 1
+            else:
+                count = 1
+                num = nums[index]
+
+            if count > 2:
+                nums.remove(nums[index])
+                count -= 1
+                index -= 1
+            index += 1    
+            
+        return len(nums)
+
+print(removeDuplicates2(nums = [1,1,1,2,2,3]))
