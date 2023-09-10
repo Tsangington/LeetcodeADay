@@ -25,13 +25,11 @@ def isAnagram(s, t):
 # another version, which simply sorts them into order
 # if they are the same.
 def isAnagram2(s, t):
-        sList = list(s)
-        tList = list(t)
-        sList.sort()
-        tList.sort()
-        if sList == tList:
-            return True
-        return False
+    sList, tList = list(s), list(t)
+    sList.sort(), tList.sort()
+    if sList == tList:
+        return True
+    return False
 
-result = isAnagram(s="anagram", t="nagaram")
+result = isAnagram2(s="anagram", t="nagaram")
 print(result)
