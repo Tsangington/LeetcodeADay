@@ -31,4 +31,19 @@ def summaryRanges(nums: list[int]) -> list[str]:
             consec = 0
     return out
 
-summaryRanges(nums = [0,1,2,4,5,7,9])
+def summaryRanges2(nums: list[int]) -> list[str]:
+    consec = 1
+    out = []
+    for index in range(1,len(nums),+1):
+        
+        if nums[index] - nums[index-1] == 1:
+            consec += 1
+        else:
+            if consec == 1:
+                out.append(f"{nums[index-1]}")
+            else:
+                out.append(f"{nums[index-consec]}->{nums[index-1]}")
+            consec = 1
+    return out
+
+summaryRanges2(nums = [0,1,2,4,5,7])
